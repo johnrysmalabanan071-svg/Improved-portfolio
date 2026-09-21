@@ -1,0 +1,31 @@
+/* Rys Automate: routes background. Same-origin file, no inline styles (CSP-safe). */
+
+.bg-routes {
+  --route-rgb: 94, 234, 212;           /* teal; change to match your accent */
+  position: fixed;
+  inset: 0;
+  z-index: -1;                          /* behind all content; keep section backgrounds transparent */
+  pointer-events: none;
+  overflow: hidden;
+  /* Shown with JavaScript off, or until the canvas takes over. */
+  background: url("/assets/routes-static.svg") center / cover no-repeat;
+}
+
+.bg-routes canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+
+.bg-routes.is-live canvas { opacity: 1; }
+.bg-routes.is-settled { background: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-routes canvas { transition: none; }
+}
+
+@media print {
+  .bg-routes { display: none; }
+}
