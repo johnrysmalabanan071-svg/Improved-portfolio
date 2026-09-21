@@ -1,7 +1,7 @@
 /* Rys Automate: routes background. Same-origin file, no inline styles (CSP-safe). */
 
 .bg-routes {
-  --route-rgb: 94, 234, 212;           /* teal; change to match your accent */
+  --route-rgb: 98, 230, 214;           /* teal; change to match your accent */
   position: fixed;
   inset: 0;
   z-index: -1;                          /* behind all content; keep section backgrounds transparent */
