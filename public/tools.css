@@ -1,0 +1,26 @@
+/* A complete group followed by one identical visual-only group allows a
+   seamless LEFT-TO-RIGHT loop: -50% -> 0. Each group owns its trailing gap. */
+.tools-section{padding-top:40px;padding-bottom:64px}
+.tools-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:24px}
+.tools-heading h2{font-size:1.85rem;margin:8px 0 0;letter-spacing:-.035em}
+.tools-heading .eyebrow{margin:0}
+.tools-controls{display:flex;align-items:center;gap:18px;flex-shrink:0}
+.tools-controls button{font-size:.8rem;min-height:44px;color:var(--muted)}
+.tools-controls button:hover{color:var(--accent)}
+.tools-row-label{font: .7rem Consolas,monospace;letter-spacing:.08em;color:var(--muted);margin:24px 0 12px}
+.tools-rail{overflow:hidden;max-width:100%;padding:6px 0;mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
+.tools-track{display:flex;width:max-content;animation:tools-move-right 68s linear infinite;will-change:transform}
+.tools-rail:nth-of-type(2) .tools-track{animation-duration:88s}
+.tools-group{display:flex;align-items:center;flex:none;gap:12px;margin:0;padding:0 12px 0 0;list-style:none}
+.tool-chip{display:flex;align-items:center;gap:12px;flex:none;border:1px solid #2e454e;border-radius:9px;background:#102029f2;padding:14px 18px;min-height:68px;color:#dbe8eb;white-space:nowrap;font-size:.875rem}
+.tool-chip img{width:32px;height:32px;object-fit:contain;flex-shrink:0;background:#f6f9fa;border-radius:6px;padding:4px}
+.tools-section:hover .tools-track,.tools-section:focus-within .tools-track,.tools-section.is-paused .tools-track,.tools-section.is-hidden .tools-track{animation-play-state:paused}
+.tools-section.show-all .tools-track{animation:none;transform:none;width:100%;will-change:auto}
+.tools-section.show-all .tools-group{flex-wrap:wrap;padding:0;width:100%;gap:12px}
+.tools-section.show-all .tools-group[aria-hidden=true]{display:none}
+.tools-section.show-all .tools-rail{overflow:visible;mask-image:none}
+.tools-section.show-all .tool-chip{flex:1 0 170px}
+.tools-help{font-size:.75rem;color:var(--muted);margin:18px 0 0}
+@keyframes tools-move-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media(max-width:600px){.tools-heading{align-items:flex-start;flex-direction:column;gap:8px}.tools-heading h2{font-size:1.65rem}.tools-controls{gap:24px}.tool-chip{padding:12px 15px;min-height:62px}.tools-section.show-all .tool-chip{flex-basis:145px;font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){.tools-track{animation:none!important;transform:none;width:100%;will-change:auto}.tools-group{flex-wrap:wrap;width:100%;padding:0}.tools-group[aria-hidden=true]{display:none}.tools-rail{mask-image:none;overflow:visible}.tool-chip{flex:1 0 145px}}
